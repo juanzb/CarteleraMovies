@@ -1,11 +1,41 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
+@theme {
+  --animate-shimmer: shimmer 2s infinite linear;
+  
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+}
 
-.fondo{
- background-image: url('./assets/background-default.png');
- backdrop-filter: brightness(20%) blur(2px);
+.shimmer-effect {
+  background: linear-gradient(
+    90deg,
+    rgba(30, 41, 59, 0.4) 0%,
+    rgba(71, 85, 105, 0.8) 50%,
+    rgba(30, 41, 59, 0.4) 100%
+  );
+  background-size: 200% 100%;
+  animation: var(--animate-shimmer);
+}
+
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(15px);
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fondo {
+  background-image: url("./assets/background-default.png");
+  backdrop-filter: brightness(20%) blur(2px);
 }
 
 ::-webkit-scrollbar {
@@ -13,7 +43,7 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(14, 30, 62, 0.886); ;
+  background: rgba(14, 30, 62, 0.886);
 }
 
 ::-webkit-scrollbar-thumb {
@@ -23,4 +53,3 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #ffd429;
 }
-

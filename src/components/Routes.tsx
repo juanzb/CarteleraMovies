@@ -1,3 +1,4 @@
+import React from "react"
 import { Route, Routes } from "react-router-dom"
 import TopRated from "../Pages/TopRated"
 import NowPlay from "../Pages/NowPlay"
@@ -7,7 +8,7 @@ import Search from "../Pages/Search"
 import DetailsMovie from "../Pages/DetailsMovie"
 import ScrollToTop from "./ScrollToTop"
 
-export default function PathRender() {
+const PathRender: React.FC = () => {
   return(
   <>
     <ScrollToTop/>
@@ -21,4 +22,6 @@ export default function PathRender() {
     </Routes>
   </>
   )
-}          
+}
+
+export default PathRender
